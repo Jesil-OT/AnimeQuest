@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AnimeQuest</string>
+    <string name="popular_anime">Popular Anime</string>
+    <string name="see_all">See all</string>
 </resources>
