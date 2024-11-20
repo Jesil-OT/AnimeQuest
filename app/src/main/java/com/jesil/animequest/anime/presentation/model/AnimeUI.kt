@@ -1,4 +1,4 @@
-package com.jesil.animequest.anime.presentation.popular_anime.model
+package com.jesil.animequest.anime.presentation.model
 
 import com.jesil.animequest.anime.domain.Anime
 
@@ -10,6 +10,6 @@ data class AnimeUI(
 
 fun Anime.toAnimeUI() = AnimeUI(
     id = node.id,
-    mainPicture = node.mainPicture.medium,
+    mainPicture = node.mainPicture.large,
     title = node.title
 )

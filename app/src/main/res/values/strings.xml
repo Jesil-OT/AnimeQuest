@@ -2,4 +2,17 @@
     <string name="app_name">AnimeQuest</string>
     <string name="popular_anime">Popular Anime</string>
     <string name="see_all">See all</string>
+    <string name="top_anime">Top Anime</string>
+    <string name="menu">Menu</string>
+    <string name="action">Search\n</string>
+    <string name="request_timeout">The request timed out.</string>
+    <string name="too_many_requests">Oops, it\'s seems like your quota is exceeded</string>
+    <string name="no_internet_connection">couldn\'t connect to server, please check your internet connection.</string>
+    <string name="error_unknown">Something went wrong, Please try again.</string>
+    <string name="bad_request">You sent a bad request!</string>
+    <string name="unathorized">You are not authorized!</string>
+    <string name="not_found">The Item was not found!</string>
+    <string name="serialization_error">Couldn\'t serialize or deserialize data.</string>
+    <string name="movie_anime">Movie Anime</string>
+    <string name="special_anime">Special Anime</string>
 </resources>

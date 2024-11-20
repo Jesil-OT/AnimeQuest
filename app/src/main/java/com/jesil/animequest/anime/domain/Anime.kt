@@ -1,7 +1,5 @@
 package com.jesil.animequest.anime.domain
 
-import kotlinx.serialization.SerialName
-
 data class Anime(
     val node : AnimeNode,
     val ranking: AnimeRanking
