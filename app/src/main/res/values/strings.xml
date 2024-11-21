@@ -15,4 +15,5 @@
     <string name="serialization_error">Couldn\'t serialize or deserialize data.</string>
     <string name="movie_anime">Movie Anime</string>
     <string name="special_anime">Special Anime</string>
+    <string name="hot_steak">Hot Steak</string>
 </resources>

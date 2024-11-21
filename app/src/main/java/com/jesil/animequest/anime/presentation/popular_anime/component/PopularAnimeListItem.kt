@@ -2,6 +2,7 @@ package com.jesil.animequest.anime.presentation.popular_anime.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -39,6 +41,8 @@ fun PopularAnimeListItem(
 
     // to check if the system is in dark mode, then apply the correct color
     val contentColor = if (isSystemInDarkTheme()) Color.White else Color.Black
+    val state = rememberLazyListState()
+    val snapFlingBehavior = rememberSnapFlingBehavior(lazyListState = state)
     if (popularAnime.isEmpty()) return else {
         Column(
             modifier = modifier.padding(
@@ -77,10 +81,14 @@ fun PopularAnimeListItem(
                     modifier = Modifier.fillMaxWidth(),
                     contentPadding = PaddingValues(horizontal = 20.dp),
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    state = state,
+                    flingBehavior = snapFlingBehavior,
                     content = {
                         items(popularAnime) {
                             PopularAnimeItem(
                                 uiState = it,
+                                state = state,
+                                index = popularAnime.indexOf(it),
                                 onClick = {}
                             )
                         }

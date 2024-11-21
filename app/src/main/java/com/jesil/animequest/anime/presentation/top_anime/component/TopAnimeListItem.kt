@@ -53,7 +53,9 @@ fun TopAnimeListItem(
             verticalArrangement = Arrangement.Center,
             content = {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 20.dp),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically,
                     content = {
