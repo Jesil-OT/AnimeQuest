@@ -19,6 +19,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
@@ -30,6 +31,8 @@ import com.jesil.animequest.ui.theme.AnimeQuestTheme
 @Composable
 fun OtherAnimeItem(
     modifier: Modifier = Modifier,
+    width : Dp = 100.dp,
+    height: Dp = 150.dp,
     uiState: AnimeUI,
     onClick: () -> Unit
 ) {
@@ -38,7 +41,7 @@ fun OtherAnimeItem(
 
     Column(
         verticalArrangement = Arrangement.Center,
-        modifier = modifier.width(100.dp),
+        modifier = modifier.width(width),
         content = {
             AsyncImage(
                 modifier = Modifier
@@ -47,7 +50,7 @@ fun OtherAnimeItem(
                         shape = RoundedCornerShape(20.dp)
                     )
                     .wrapContentWidth()
-                    .height(150.dp)
+                    .height(height)
                     .clip(RoundedCornerShape(10.dp))
                     .clickable { onClick() },
                 model = uiState.mainPicture,

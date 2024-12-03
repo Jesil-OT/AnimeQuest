@@ -43,7 +43,7 @@ fun AnimeTopAppBar(
                     withStyle(
                         style = SpanStyle(
                             fontWeight = FontWeight.Bold,
-                            fontSize = 28.sp,
+                            fontSize = 25.sp,
                             color = contentColor
                         )
                     ) {

@@ -2,7 +2,7 @@
     <string name="app_name">AnimeQuest</string>
     <string name="popular_anime">Popular Anime</string>
     <string name="see_all">See all</string>
-    <string name="top_anime">Top Anime</string>
+    <string name="top_anime">Top Airing Anime</string>
     <string name="menu">Menu</string>
     <string name="action">Search\n</string>
     <string name="request_timeout">The request timed out.</string>
@@ -16,4 +16,6 @@
     <string name="movie_anime">Movie Anime</string>
     <string name="special_anime">Special Anime</string>
     <string name="hot_steak">Hot Steak</string>
+    <string name="anime">Anime</string>
+    <string name="manga">Manga</string>
 </resources>

@@ -8,5 +8,4 @@ interface AnimeDataSource {
     suspend fun getPopularAnime(): Result<List<Anime>, NetworkError>
     suspend fun getMovieAnime(): Result<List<Anime>, NetworkError>
     suspend fun getSpecialAnime(): Result<List<Anime>, NetworkError>
-
 }

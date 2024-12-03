@@ -9,6 +9,7 @@ import com.jesil.animequest.core.data.networking.safeCall
 import com.jesil.animequest.core.domain.utils.NetworkError
 import com.jesil.animequest.core.domain.utils.QueryConstants.MOVIE_ANIME
 import com.jesil.animequest.core.domain.utils.QueryConstants.POPULAR_ANIME
+import com.jesil.animequest.core.domain.utils.QueryConstants.RANKING_ANIME_ENDPOINT
 import com.jesil.animequest.core.domain.utils.QueryConstants.SPECIAL_ANIME
 import com.jesil.animequest.core.domain.utils.QueryConstants.TOP_ANIME
 import com.jesil.animequest.core.domain.utils.Result
@@ -24,7 +25,7 @@ class RemoteAnimeDataSource(
     override suspend fun getTopAnime(): Result<List<Anime>, NetworkError>
         = safeCall<AnimeResponseDto> {
             httpClient.get(
-                urlString = constructUrl("/anime/ranking")
+                urlString = constructUrl( url = RANKING_ANIME_ENDPOINT)
             ){
                 parameter("ranking_type", TOP_ANIME)
             }
@@ -35,7 +36,7 @@ class RemoteAnimeDataSource(
     override suspend fun getPopularAnime(): Result<List<Anime>, NetworkError>
         = safeCall<AnimeResponseDto> {
             httpClient.get(
-                urlString = constructUrl("/anime/ranking")
+                urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
             ) {
                 parameter("ranking_type", POPULAR_ANIME)
             }
@@ -46,7 +47,7 @@ class RemoteAnimeDataSource(
     override suspend fun getMovieAnime(): Result<List<Anime>, NetworkError>
        = safeCall<AnimeResponseDto> {
             httpClient.get(
-                urlString = constructUrl("/anime/ranking")
+                urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
             ) {
                 parameter("ranking_type", MOVIE_ANIME)
             }
@@ -57,7 +58,7 @@ class RemoteAnimeDataSource(
     override suspend fun getSpecialAnime(): Result<List<Anime>, NetworkError> =
         safeCall<AnimeResponseDto> {
             httpClient.get(
-                urlString = constructUrl("/anime/ranking")
+                urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
             ) {
                 parameter("ranking_type", SPECIAL_ANIME)
             }
