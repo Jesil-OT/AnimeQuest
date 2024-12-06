@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jesil.animequest.anime.presentation.model.AnimeSort
+import com.jesil.animequest.anime.presentation.model.getSelectedOptionOptions
 
 @Composable
 fun AnimeChipGroup(

@@ -22,19 +22,19 @@ class RemoteAnimeDataSource(
     private val httpClient: HttpClient
 ) : AnimeDataSource {
 
-    override suspend fun getTopAnime(): Result<List<Anime>, NetworkError>
-        = safeCall<AnimeResponseDto> {
+    override suspend fun getTopAnime(): Result<List<Anime>, NetworkError> =
+        safeCall<AnimeResponseDto> {
             httpClient.get(
-                urlString = constructUrl( url = RANKING_ANIME_ENDPOINT)
-            ){
+                urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
+            ) {
                 parameter("ranking_type", TOP_ANIME)
             }
         }.map { response ->
-            response.data.map {it.toAnime()}
+            response.data.map { it.toAnime() }
         }
 
-    override suspend fun getPopularAnime(): Result<List<Anime>, NetworkError>
-        = safeCall<AnimeResponseDto> {
+    override suspend fun getPopularAnime(): Result<List<Anime>, NetworkError> =
+        safeCall<AnimeResponseDto> {
             httpClient.get(
                 urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
             ) {
@@ -44,8 +44,8 @@ class RemoteAnimeDataSource(
             response.data.map { it.toAnime() }
         }
 
-    override suspend fun getMovieAnime(): Result<List<Anime>, NetworkError>
-       = safeCall<AnimeResponseDto> {
+    override suspend fun getMovieAnime(): Result<List<Anime>, NetworkError> =
+        safeCall<AnimeResponseDto> {
             httpClient.get(
                 urlString = constructUrl(url = RANKING_ANIME_ENDPOINT)
             ) {

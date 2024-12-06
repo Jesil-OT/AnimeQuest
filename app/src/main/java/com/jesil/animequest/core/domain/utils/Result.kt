@@ -1,3 +1,4 @@
+
 package com.jesil.animequest.core.domain.utils
 
 typealias DomainError = Error

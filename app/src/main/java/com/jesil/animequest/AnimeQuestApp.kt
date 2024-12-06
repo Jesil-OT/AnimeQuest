@@ -1,6 +1,7 @@
 package com.jesil.animequest
 
 import android.app.Application
+import com.jesil.animequest.di.animeModule
 import com.jesil.animequest.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -12,7 +13,10 @@ class AnimeQuestApp: Application() {
         startKoin {
             androidContext(this@AnimeQuestApp)
             androidLogger()
-            modules(appModule)
+            modules(
+                appModule,
+                animeModule
+            )
         }
     }
 }

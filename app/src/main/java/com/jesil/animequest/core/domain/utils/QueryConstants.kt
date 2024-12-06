@@ -7,5 +7,8 @@ object QueryConstants {
     const val MOVIE_ANIME = "movie"
     const val SPECIAL_ANIME = "special"
     const val UPCOMING_ANIME = "upcoming"
+    const val TV_SPECIAL = "tv"
+    const val OVA_SERIES = "ova"
+    const val FAVORITE_ANIME = "favorite"
     const val TOP_AIRING = "airing"
 }

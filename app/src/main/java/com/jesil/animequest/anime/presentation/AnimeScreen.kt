@@ -20,10 +20,16 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.jesil.animequest.anime.presentation.component.AnimeChipGroup
+import com.jesil.animequest.anime.presentation.favorites.FavoritesListScreen
+import com.jesil.animequest.anime.presentation.favorites.FavoritesListViewModel
 import com.jesil.animequest.anime.presentation.model.AnimeSort
 import com.jesil.animequest.anime.presentation.model.getSelectedOptionOptions
+import com.jesil.animequest.anime.presentation.ova_series.OvaSeriesListScreen
+import com.jesil.animequest.anime.presentation.ova_series.OvaSeriesListViewModel
 import com.jesil.animequest.anime.presentation.top_airing.TopAiringListScreen
 import com.jesil.animequest.anime.presentation.top_airing.TopAiringViewModel
+import com.jesil.animequest.anime.presentation.tv_specials.TvSpecialsListScreen
+import com.jesil.animequest.anime.presentation.tv_specials.TvSpecialsListViewModel
 import com.jesil.animequest.anime.presentation.upcoming.UpcomingListScreen
 import com.jesil.animequest.anime.presentation.upcoming.UpcomingListViewModel
 import com.jesil.animequest.ui.theme.AnimeQuestTheme
@@ -34,11 +40,12 @@ fun AnimeScreen(
     animeListViewModel: AnimeListViewModel = koinViewModel(),
     upcomingListViewModel: UpcomingListViewModel = koinViewModel(),
     topAiringViewModel: TopAiringViewModel = koinViewModel(),
+    tvSpecialsListViewModel: TvSpecialsListViewModel = koinViewModel(),
+    ovaSeriesListViewModel: OvaSeriesListViewModel = koinViewModel(),
+    favoritesListViewModel: FavoritesListViewModel = koinViewModel(),
     modifier: Modifier = Modifier
 ) {
     val animeListState by animeListViewModel.state.collectAsStateWithLifecycle()
-    val upcomingListState by upcomingListViewModel.state.collectAsStateWithLifecycle()
-    val topAiringListState by topAiringViewModel.state.collectAsStateWithLifecycle()
     var selectedLabel by rememberSaveable { mutableStateOf(getSelectedOptionOptions().first()) }
 
     Column(
@@ -48,7 +55,7 @@ fun AnimeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         content = {
             AnimeChipGroup(
-                showChip = animeListState.popularAnime.isNotEmpty(),
+                showChip = animeListState.topAnime.isNotEmpty(),
                 labelItems = getSelectedOptionOptions(),
                 selectItems = selectedLabel,
                 onOptionSelected = {
@@ -62,39 +69,45 @@ fun AnimeScreen(
                         state = animeListState
                     )
                 }
+
                 AnimeSort.UPCOMING -> {
+                    val upcomingListState by upcomingListViewModel.state.collectAsStateWithLifecycle()
                     UpcomingListScreen(
                         modifier = modifier,
                         state = upcomingListState
                     )
                 }
+
                 AnimeSort.AIRING -> {
+                    val topAiringListState by topAiringViewModel.state.collectAsStateWithLifecycle()
                     TopAiringListScreen(
                         modifier = modifier,
                         state = topAiringListState
                     )
                 }
+
                 AnimeSort.TV_SPECIALS -> {
-                    Box(
-                        modifier = modifier.fillMaxSize(),
-                    ) {
-                        Text(text = "TV Specials Anime")
-                    }
+                    val tvSpecialsListState by tvSpecialsListViewModel.state.collectAsStateWithLifecycle()
+                    TvSpecialsListScreen(
+                        modifier = modifier,
+                        state = tvSpecialsListState
+                    )
                 }
 
                 AnimeSort.OVA_SERIES -> {
-                    Box(
-                        modifier = modifier.fillMaxSize(),
-                    ) {
-                        Text(text = AnimeSort.OVA_SERIES.value)
-                    }
+                    val ovaSeriesListState by ovaSeriesListViewModel.state.collectAsStateWithLifecycle()
+                    OvaSeriesListScreen(
+                        modifier = modifier,
+                        state = ovaSeriesListState
+                    )
                 }
+
                 AnimeSort.FAVORITES -> {
-                    Box(
-                        modifier = modifier.fillMaxSize(),
-                    ) {
-                        Text(text = "Favorites Anime")
-                    }
+                    val favoritesListState by favoritesListViewModel.state.collectAsStateWithLifecycle()
+                    FavoritesListScreen(
+                        modifier = modifier,
+                        state = favoritesListState
+                    )
                 }
             }
         }
